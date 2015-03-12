@@ -26,3 +26,12 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# webstorm settings
+.idea
+
+# don't commit docs
+doc
+
+# or tmp files
+tmp
