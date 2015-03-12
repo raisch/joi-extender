@@ -1,0 +1,31 @@
+{
+  "name": "joiExtender",
+  "version": "0.0.1",
+  "description": "Extends Hapi Joi with new top-level validations. EXPERIMENTAL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raisch/joiExtender.git"
+  },
+  "keywords": [
+    "hapi",
+    "joi",
+    "validation",
+    "experimental"
+  ],
+  "author":"Rob Raisch [:raisch]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raisch/joiExtender/issues"
+  },
+  "homepage": "https://github.com/raisch/joiExtender",
+  "devDependencies": {},
+  "dependencies": {
+    "joi": "^6.0.8",
+    "hoek": "^2.11.1",
+    "lodash": "^3.5.0"
+  }
+}
