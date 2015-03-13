@@ -8,7 +8,7 @@ But it _does_ work.
 
 Use at your own risk.
 
-## Install
+## Installation
 
 `npm install joi-extender`
 
