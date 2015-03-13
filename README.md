@@ -2,6 +2,8 @@
 
 Extends hapi joi with new top-level validation tests.
 
+[![Build Status](https://travis-ci.org/raisch/joiExtender.svg?branch=master)](https://travis-ci.org/raisch/joiExtender)
+
 __*WARNING: THIS IS COMPLETELY EXPERIMENTAL AND USES MAGIC WHICH PROBABLY WILL BREAK WHEN YOU UPGRADE JOI!*__
 
 But it _does_ work.
