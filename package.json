@@ -15,7 +15,7 @@
     "docs":"npm run doc:clean && npm run doc:mkdir && jsdoc -r -d $npm_package_directories_doc $npm_package_directories_lib $npm_package_directories_test_helpers",
     "doc:mkdir":"mkdir -p $npm_package_directories_doc",
     "doc:clean":"rm -rf $npm_package_directories_doc",
-    "clean":"npm run doc:clean; rm -rf /node_modules"
+    "clean":"npm run doc:clean; rm -rf ./node_modules"
   },
   "repository": {
     "type": "git",
