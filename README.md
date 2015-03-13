@@ -20,7 +20,7 @@ See `package.json` for other script targets.
 
 ## Description 
 
-joiExtender allows you to add your own "top-level" validate-able types to joi by leveraging knowledge
+joi-extender allows you to add your own "top-level" validate-able types to joi by leveraging knowledge
 of the internal structure of Joi, which I freely admit is a VBI<sup><small>\*</small></sup>.
 
 In other words, it allows you to add your own base validation types, just like `joi.string()`, as well
@@ -35,7 +35,7 @@ Here's a full example, which I'll pick apart below:
 
 ```
 var joi=require('joi'),
-    extender=require('joiExtender');
+    extender=require('joi-extender');
 
 // create a new Joi validation function called "fiddle"
 
