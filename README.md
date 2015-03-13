@@ -26,12 +26,13 @@ joi-extender allows you to add your own "top-level" validate-able types to joi b
 of the internal structure of Joi, which I freely admit is a VBI<sup><small>\*</small></sup>.
 
 In other words, it allows you to add your own base validation types, just like `joi.string()`, as well
-as further chain-able tests specific to your new type.
+as further chain-able tests specific to your new type, like `joi.string().regex()`.
 
-Here's a quick explanation of how you might use it. 
+Here's a quick explanation of how you might use it.
 
-(Please note that this is a very trivial example which I am well aware can be replicated using `joi.string().regex()`.
-But if we did that, we wouldn't get to use this module, would we?)
+(Please note that this is a very trivial example which I am well aware can be replicated using 
+`joi.string().regex()`.But if we did that, we wouldn't get to use this module, would we? For a 
+real-world example, see `test/extender.js` which defines a new `joi.dma()` type using [is_dma](http://github.com/raisch/is_dma).)
 
 Here's a full example, which I'll pick apart below:
 
