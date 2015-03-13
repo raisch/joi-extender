@@ -1,4 +1,5 @@
-# joiExtender
+# joi-extender
+
 Extends hapi joi with new top-level validation tests.
 
 __*WARNING: THIS IS COMPLETELY EXPERIMENTAL AND USES MAGIC WHICH PROBABLY WILL BREAK WHEN YOU UPGRADE JOI!*__
@@ -9,7 +10,7 @@ Use at your own risk.
 
 ## Install
 
-`npm install joiExtender`
+`npm install joi-extender`
 
 To build jsdoc:
 
