@@ -36,8 +36,8 @@ describe('extender', function () {
         badFoo: 'is not foo-worthy'
       },
       requirements: {
-        base: _.isString,
-        invalid: is_dma
+        base: function (value) { return _.isString(value) },
+        invalid: function (value) { return is_dma(value) }
       },
       tests: {
         isFoo: function (value, args) {
