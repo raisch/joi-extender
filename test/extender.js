@@ -17,6 +17,9 @@ var util = require('util'),
     extender = require(path.join(__dirname, '../lib/extender')),
     is_dma = require('is_dma');
 
+var requirementsArguments = null,
+    testsArguments = null;
+
 chai.should(); // side effect!!: extends Object.prototype
 
 require('./helpers/chai_extensions'); // side effect!!: extends chai
@@ -36,11 +39,15 @@ describe('extender', function () {
         badFoo: 'is not foo-worthy'
       },
       requirements: {
-        base: _.isString,
-        invalid: is_dma
+        base: function (value) {
+          requirementsArguments = arguments;
+          return _.isString(value)
+        },
+        invalid: function (value) { return is_dma(value) }
       },
       tests: {
         isFoo: function (value, args) {
+          testsArguments = arguments;
           if ('502' === value) return 'badFoo';
         }
       }
@@ -83,6 +90,13 @@ describe('extender', function () {
     var result = joi.dma().required().isFoo().label('dma').validate('502');
     //console.log(util.inspect(result,{depth:null}));
     result.should.have.errmsg('"dma" is not foo-worthy');
+  });
+
+  it('should have passed value, state, and options to requirements functions', function () {
+    requirementsArguments.should.have.length(3);
+    requirementsArguments[0].should.equal('502');
+    requirementsArguments[1].should.have.property('key');
+    requirementsArguments[2].should.have.property('abortEarly');
   });
 
 });
