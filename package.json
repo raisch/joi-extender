@@ -1,21 +1,21 @@
 {
   "name": "joi-extender",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Extends Hapi Joi with new top-level validations. EXPERIMENTAL but fully functional.",
   "main": "index.js",
-  "directories":{
-    "doc":"./doc",
-    "lib":"./lib",
-    "test_helpers":"./test/helpers"
+  "directories": {
+    "doc": "./doc",
+    "lib": "./lib",
+    "test_helpers": "./test/helpers"
   },
   "scripts": {
-    "env":"env",
+    "env": "env",
     "test": "node_modules/.bin/mocha",
-    "build":"npm run docs",
-    "docs":"npm run doc:clean && npm run doc:mkdir && jsdoc -r -d $npm_package_directories_doc $npm_package_directories_lib $npm_package_directories_test_helpers",
-    "doc:mkdir":"mkdir -p $npm_package_directories_doc",
-    "doc:clean":"rm -rf $npm_package_directories_doc",
-    "clean":"npm run doc:clean; rm -rf ./node_modules"
+    "build": "npm run docs",
+    "docs": "npm run doc:clean && npm run doc:mkdir && jsdoc -r -d $npm_package_directories_doc $npm_package_directories_lib $npm_package_directories_test_helpers",
+    "doc:mkdir": "mkdir -p $npm_package_directories_doc",
+    "doc:clean": "rm -rf $npm_package_directories_doc",
+    "clean": "npm run doc:clean; rm -rf ./node_modules"
   },
   "repository": {
     "type": "git",
