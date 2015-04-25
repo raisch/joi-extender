@@ -21,7 +21,7 @@ See `package.json` for other script targets.
 
 ## Description 
 
-__joi-extender__ allows you to add your own "top-level" validate-able types to Joi as well as new "chainable" methods specific to our new type.
+__joi-extender__ allows you to add your own "top-level" validate-able types to Joi as well as new "chainable" methods specific to the new type.
 
 In other words, it allows you to add your own base validation types, just like `joi.string()`, as well
 as further chain-able tests specific to the newly created type, like `joi.string().regex()`.
