@@ -36,17 +36,19 @@ describe('extender', function () {
       errmsgs: {
         base: 'must be a string',
         invalid: 'is not a valid dma',
-        badFoo: 'is not foo-worthy'
+        badFoo: '"{{value}}" is not a foo-worthy {{key}}'
       },
       requirements: {
         base: function (value) {
           requirementsArguments = arguments;
           return _.isString(value)
         },
-        invalid: function (value) { return is_dma(value) }
+        invalid: function (value) {
+          return is_dma(value)
+        }
       },
       tests: {
-        isFoo: function (value, args) {
+        isFoo: function (value, args, state, options) {
           testsArguments = arguments;
           if ('502' === value) return 'badFoo';
         }
@@ -87,9 +89,8 @@ describe('extender', function () {
   });
 
   it('should not validate with a non-foo-worthy dma', function () {
-    var result = joi.dma().required().isFoo().label('dma').validate('502');
-    //console.log(util.inspect(result,{depth:null}));
-    result.should.have.errmsg('"dma" is not foo-worthy');
+    var result = joi.dma().required().isFoo(1,2,3).label('dma').validate('502');
+    result.should.have.errmsg('"502" is not a foo-worthy dma');
   });
 
   it('should have passed value, state, and options to requirements functions', function () {
