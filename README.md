@@ -4,8 +4,8 @@ Extends hapi joi with new top-level validation tests.
 
 [![npm version](https://badge.fury.io/js/joi-extender.svg)](http://badge.fury.io/js/joi-extender)
 [![Build Status](https://travis-ci.org/raisch/joi-extender.svg?branch=master)](https://travis-ci.org/raisch/joi-extender)
-[![Dependencies Status](https://david-dm.org/raisch/joiExtender.svg)](https://david-dm.org/raisch/joi-extender)
-[![DevDependencies Status](https://david-dm.org/raisch/joiExtender/dev-status.svg)](https://david-dm.org/raisch/joi-extender#info=devDependencies)
+[![Dependencies Status](https://david-dm.org/raisch/joi-extender.svg)](https://david-dm.org/raisch/joi-extender)
+[![DevDependencies Status](https://david-dm.org/raisch/joi-extender/dev-status.svg)](https://david-dm.org/raisch/joi-extender#info=devDependencies)
 
 __NOTE:__ This module relies upon and leverages special knowledge of Joi's internal structure which _may_ change in the future and while I freely admit that this is usually a "VBI<sup><small>\*</small></sup>", every effort will be made to assure it continues to work as Joi is updated.
 
