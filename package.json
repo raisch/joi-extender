@@ -1,7 +1,7 @@
 {
   "name": "joi-extender",
-  "version": "0.2.2",
-  "description": "Extends Hapi Joi with new top-level validations. EXPERIMENTAL but fully functional.",
+  "version": "0.2.3",
+  "description": "Extends Joi with new top-level validations and chain-ables.",
   "main": "index.js",
   "directories": {
     "doc": "./doc",
