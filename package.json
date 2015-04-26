@@ -1,6 +1,6 @@
 {
   "name": "joi-extender",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Extends Joi with new top-level validations and chain-ables.",
   "main": "index.js",
   "directories": {

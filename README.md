@@ -3,7 +3,7 @@
 Extends hapi joi with new top-level validation tests.
 
 [![npm version](https://badge.fury.io/js/joi-extender.svg)](http://badge.fury.io/js/joi-extender)
-[![Build Status](https://travis-ci.org/raisch/joiExtender.svg?branch=master)](https://travis-ci.org/raisch/joi-extender)
+[![Build Status](https://travis-ci.org/raisch/joi-extender.svg?branch=master)](https://travis-ci.org/raisch/joi-extender)
 [![Dependencies Status](https://david-dm.org/raisch/joiExtender.svg)](https://david-dm.org/raisch/joi-extender)
 [![DevDependencies Status](https://david-dm.org/raisch/joiExtender/dev-status.svg)](https://david-dm.org/raisch/joi-extender#info=devDependencies)
 
