@@ -2,7 +2,7 @@
   "name": "joi-extender",
   "version": "0.2.6",
   "description": "Extends Joi with new top-level validations and chain-ables.",
-  "main": "index.js",
+  "main": "./lib/extender.js",
   "directories": {
     "doc": "./doc",
     "lib": "./lib",
