@@ -7,6 +7,9 @@ Extends hapi joi with new top-level validation tests.
 [![Dependencies Status](https://david-dm.org/raisch/joi-extender.svg)](https://david-dm.org/raisch/joi-extender)
 [![DevDependencies Status](https://david-dm.org/raisch/joi-extender/dev-status.svg)](https://david-dm.org/raisch/joi-extender#info=devDependencies)
 
+[![NPM](https://nodei.co/npm/joi-extender.png)](https://nodei.co/npm/joi-extender/)
+[![NPM](https://nodei.co/npm-dl/joi-extender.png)](https://nodei.co/npm-dl/joi-extender/)
+
 __NOTE:__ This module relies upon and leverages special knowledge of Joi's internal structure which _may_ change in the future and while I freely admit that this is usually a "VBI<sup><small>\*</small></sup>", every effort will be made to assure it continues to work as Joi is updated.
 
 ## Installation
