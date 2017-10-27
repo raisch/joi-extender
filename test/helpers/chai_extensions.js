@@ -4,11 +4,10 @@
  * Created by raisch on 10/31/14.
  */
 
-/*jshint node:true, bitwise:true, camelcase:false, curly:true, undef:false, unused:false, eqeqeq:true, shadow:true */
+/* jshint node:true, bitwise:true, camelcase:false, curly:true, undef:false, unused:false, eqeqeq:true, shadow:true */
 
-
-var _ = require('lodash'),
-    chai = require('chai');
+const _ = require('lodash');
+const chai = require('chai');
 
 /**
  * @module test/helpers/chai_extensions
@@ -22,7 +21,6 @@ var _ = require('lodash'),
   'use strict';
 
   chai.use(function (_chai, utils) {
-
     var Assertion = _chai.Assertion;
 
     /**
@@ -32,9 +30,7 @@ var _ = require('lodash'),
      * @private
      */
     var getErrmsgs = function (result) {
-      var err = result.error || {},
-          details = err.details || [],
-          errmsgs = _.pluck(details, 'message');
+      const errmsgs = _.map(_.get(result, 'error.details', []), 'message');
       return errmsgs || [];
     };
 
@@ -49,12 +45,12 @@ var _ = require('lodash'),
     utils.addProperty(Assertion.prototype, 'validationResult', function () {
       var result = this._obj;
       this.assert(
-          'object' === typeof result,
+          typeof result === 'object',
           'expected #{this} to be an object',
           'expected #{this} to not be an object'
       );
       this.assert(
-          0 === _.chain(result).keys().difference(['error', 'value']).value().length,
+          _.chain(result).keys().difference(['error', 'value']).value().length === 0,
           'expected #{this} to be a validationResult',
           'expected #{this} to not be a validationResult'
       );
@@ -68,13 +64,12 @@ var _ = require('lodash'),
     utils.addProperty(Assertion.prototype, 'validate', function () {
       var obj = this._obj;
 
-      //noinspection BadExpressionStatementJS
-      new Assertion(obj).validationResult;
+      new Assertion(obj).validationResult; // eslint-disable-line no-unused-expressions
 
       var error = obj.error || null,
-          json = JSON.stringify(obj, null, '\t');
+        json = JSON.stringify(obj, null, '\t');
 
-      this.assert(null === error,
+      this.assert(error === null,
           '#{this} should validate but does not: ' + json,
           '#{this} should not validate but it does'
       );
@@ -90,19 +85,17 @@ var _ = require('lodash'),
     utils.addProperty(Assertion.prototype, 'error', function () {
       var obj = this._obj;
 
-      //noinspection BadExpressionStatementJS
-      new Assertion(obj).validationResult;
+      new Assertion(obj).validationResult; // eslint-disable-line no-unused-expressions
 
       var error = obj.error || null,
-          json = JSON.stringify(obj, null, '\t');
+        json = JSON.stringify(obj, null, '\t');
 
-      this.assert(null !== error,
+      this.assert(error !== null,
           '#{this} should have error but does not: ' + json,
           '#{this} should not not have error but does: ' + json
       );
       utils.flag(this, 'object', error);
     });
-
 
     /**
      * @name value
@@ -112,13 +105,12 @@ var _ = require('lodash'),
      * @example target.should.[not].have.value
      */
     utils.addProperty(Assertion.prototype, 'value', function () {
-      var obj = this._obj,
-          value = obj.value || {};
+      const obj = this._obj;
+      const value = obj.value || {};
 
-      //noinspection BadExpressionStatementJS
-      new Assertion(obj).validationResult;
+      new Assertion(obj).validationResult; // eslint-disable-line no-unused-expressions
 
-      this.assert(null !== value,
+      this.assert(value !== null,
           '#{this} should have value',
           '#{this} should not have value'
       );
@@ -135,10 +127,10 @@ var _ = require('lodash'),
      *      target.should.have.errmsgs.that.contain(errmsg)
      */
     utils.addProperty(Assertion.prototype, 'errmsgs', function () {
-      var obj = this._obj,
-          errmsgs = getErrmsgs(obj);
+      const obj = this._obj;
+      const errmsgs = getErrmsgs(obj);
       this.assert(
-          'array' === utils.type(errmsgs) && errmsgs.length > 0,
+          utils.type(errmsgs) === 'array' && errmsgs.length > 0,
           'expected #{this} to have errmsgs',
           'expected #{this} to not have errmsgs'
       );
@@ -153,16 +145,15 @@ var _ = require('lodash'),
      *      target.should.[not].have.errmsg(msg)
      */
     Assertion.addMethod('errmsg', function (msg) {
-      var obj = this._obj, errmsgs = getErrmsgs(obj);
+      const obj = this._obj;
+      const errmsgs = getErrmsgs(obj);
       this.assert(
-          _.contains(errmsgs, msg),
+          _.includes(errmsgs, msg),
           'expected #{this} to have an error message: #{errmsg}',
           'expected #{this} to not an error message: #{errmsg}',
           msg,   // expected
           errmsgs   // actual
       );
     });
-
   });
-
 })();

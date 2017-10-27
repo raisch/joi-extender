@@ -1,6 +1,6 @@
 {
   "name": "joi-extender",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Extends Joi with new top-level validations and chain-ables.",
   "main": "./lib/extender.js",
   "directories": {
@@ -34,14 +34,14 @@
   },
   "homepage": "https://github.com/raisch/joiExtender",
   "devDependencies": {
-    "chai": "^2.1.1",
+    "chai": "^4.1.2",
     "is_dma": "^1.0.1",
-    "jsdoc": "^3.3.0-beta2",
-    "mocha": "^2.2.1"
+    "jsdoc": "^3.5.5",
+    "mocha": "^4.0.1"
   },
   "dependencies": {
-    "hoek": "^2.16.3",
-    "joi": "^6.10.1",
-    "lodash": "^3.10.1"
+    "hoek": "^5.0.1",
+    "joi": "6.10.1",
+    "lodash": "^4.17.4"
   }
 }

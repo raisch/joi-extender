@@ -1,33 +1,29 @@
 'use strict';
+/* eslint-env node, es6, mocha */
 
-/*
- * Created by raisch on 3/12/15.
+/**
+ * @Author: Raisch Rob <raisch>
+ * @Date:   20150315
+ * @Email:  raisch@gmail.com
+ * @Last modified by:   raisch
+ * @Last modified time: 20171027
  */
 
-/*jshint node:true, bitwise:true, camelcase:false, curly:true, undef:false, unused:false, eqeqeq:true, shadow:true */
+const path = require('path');
+const _ = require('lodash');
+const joi = require('joi');
+const chai = require('chai');
+const extender = require(path.resolve(__dirname, '../lib/extender'));
+const isDma = require('is_dma');
 
-/*global require, __dirname */
-
-//noinspection JSUnusedGlobalSymbols
-var util = require('util'),
-    path = require('path'),
-    _ = require('lodash'),
-    joi = require('joi'),
-    chai = require('chai'),
-    extender = require(path.join(__dirname, '../lib/extender')),
-    is_dma = require('is_dma');
-
-var requirementsArguments = null,
-    testsArguments = null;
+let requirementsArguments = null;
 
 chai.should(); // side effect!!: extends Object.prototype
 
 require('./helpers/chai_extensions'); // side effect!!: extends chai
 
 describe('extender', function () {
-
   before(function () {
-    //noinspection JSUnusedLocalSymbols
     /**
      * Add a new Designated Market Area (dma) validator.
      * @see {@link http://github.com/raisch/is_dma}
@@ -41,16 +37,15 @@ describe('extender', function () {
       requirements: {
         base: function (value) {
           requirementsArguments = arguments;
-          return _.isString(value)
+          return _.isString(value);
         },
         invalid: function (value) {
-          return is_dma(value)
+          return isDma(value);
         }
       },
       tests: {
         isFoo: function (value, args, state, options) {
-          testsArguments = arguments;
-          if ('502' === value) return 'badFoo';
+          if (value === '502') return 'badFoo';
         }
       }
     });
@@ -65,15 +60,13 @@ describe('extender', function () {
   });
 
   it('should not validate without a value', function () {
-    //noinspection JSUnusedAssignment
-    var value,
-        result = joi.dma().required().label('dma').validate(value);
+    const result = joi.dma().required().label('dma').validate();
     result.should.have.errmsg('"dma" is required');
   });
 
   it('should not validate with a non-string', function () {
-    var value = 1,
-        result = joi.dma().required().label('dma').validate(value);
+    const value = 1;
+    const result = joi.dma().required().label('dma').validate(value);
     result.should.have.errmsg('"dma" must be a string');
   });
 
@@ -84,12 +77,11 @@ describe('extender', function () {
 
   it('should validate with a good dma', function () {
     var result = joi.dma().required().label('dma').validate('501');
-    //noinspection BadExpressionStatementJS
-    result.should.not.have.errmsgs;
+    result.should.not.have.errmsgs; // eslint-disable-line no-unused-expressions
   });
 
   it('should not validate with a non-foo-worthy dma', function () {
-    var result = joi.dma().required().isFoo(1,2,3).label('dma').validate('502');
+    var result = joi.dma().required().isFoo(1, 2, 3).label('dma').validate('502');
     result.should.have.errmsg('"502" is not a foo-worthy dma');
   });
 
@@ -99,5 +91,4 @@ describe('extender', function () {
     requirementsArguments[1].should.have.property('key');
     requirementsArguments[2].should.have.property('abortEarly');
   });
-
 });
