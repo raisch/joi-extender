@@ -1,6 +1,9 @@
 {
   "name": "joi-extender",
-  "version": "0.2.8",
+  "version": "0.2.9",
+  "engines": {
+    "node": ">=5.12.1"
+  },
   "description": "Extends Joi with new top-level validations and chain-ables.",
   "main": "./lib/extender.js",
   "directories": {
@@ -9,13 +12,13 @@
     "test_helpers": "./test/helpers"
   },
   "scripts": {
-    "env": "env",
+    "build": "npm run test",
     "test": "node_modules/.bin/mocha",
-    "build": "npm run docs",
     "docs": "npm run doc:clean && npm run doc:mkdir && jsdoc -r -d $npm_package_directories_doc $npm_package_directories_lib $npm_package_directories_test_helpers",
     "doc:mkdir": "mkdir -p $npm_package_directories_doc",
     "doc:clean": "rm -rf $npm_package_directories_doc",
-    "clean": "npm run doc:clean; rm -rf ./node_modules"
+    "clean": "npm run doc:clean; rm -rf ./node_modules",
+    "env": "env"
   },
   "repository": {
     "type": "git",
